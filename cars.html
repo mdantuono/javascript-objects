@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Car Rentals</title>
+    
+    <script src="cars.js"></script>
+    
+    <style>
+        h1, h2, h3, p{
+            font-family:sans-serif;
+        }
+        body {
+            text-align:center;
+        }
+    </style>
+    
+</head>
+<body id="everything">
+    <div class= "container" style="background-color:grey">
+        <strong><h1>Business name</h1></strong>
+        <em><h3 id= "business"></h2></em>
+    </div>
+    
+    
+    <h3>Car Type</h3>
+    <p id= "type1"></p>
+    
+    <h3>Economy Cars Available</h3>
+    <p id= "economy"></p>
+    
+    <h3>Car Type</h3>
+    <p id= "type2"></p>
+    
+    <h3>Midsize Available</h3>
+    <p id= "midsize"></p>
+    
+    <button class="btn btn-primary" onclick="cardata()">Update</button>
+    <button class="btn btn-success" onclick="rentEcon()">Rent an economy car</button>
+    <button class="btn btn-success" onclick="rentMidsize()">Rent a midsize car</button>
+    <button class="btn btn-danger" onclick="destroy()">Destroy All Cars</button>
+    
+</body>
+</html>
