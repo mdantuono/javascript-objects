@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,38 +11,63 @@
     <script src="cars.js"></script>
     
     <style>
-        h1, h2, h3, p{
+        h1 {
+            font-family: 'Yellowtail', cursive;
+            font-size: 50px;
+        }
+        h2, h3, p{
             font-family:sans-serif;
         }
         body {
             text-align:center;
         }
+        .show {
+            display:block;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+        }
     </style>
     
 </head>
-<body id="everything">
-    <div class= "container" style="background-color:grey">
-        <strong><h1>Business name</h1></strong>
-        <em><h3 id= "business"></h2></em>
+<body>
+    <div class= "container" style="background-color:lightblue">
+        <h1><em><strong>Catch-A-Ride</em></strong></h1>
     </div>
     
-    
-    <h3>Car Type</h3>
-    <p id= "type1"></p>
-    
-    <h3>Economy Cars Available</h3>
-    <p id= "economy"></p>
-    
-    <h3>Car Type</h3>
-    <p id= "type2"></p>
-    
-    <h3>Midsize Available</h3>
-    <p id= "midsize"></p>
-    
-    <button class="btn btn-primary" onclick="cardata()">Update</button>
-    <button class="btn btn-success" onclick="rentEcon()">Rent an economy car</button>
-    <button class="btn btn-success" onclick="rentMidsize()">Rent a midsize car</button>
-    <button class="btn btn-danger" onclick="destroy()">Destroy All Cars</button>
+    <!--Rental Form-->
+    <div id="pagecontent">
+        <h4><strong><em>Rental Form</em></strong></h4>
+        <form onsubmit="reserved()">
+            
+            <label>Renter Name</label>
+            <input type="text" name="Renter name" placeholder="Your Name" required><br>
+            
+            <label>Car Type</label>
+            <select id="selection" onchange="display(this.value)" name="cars" required>
+                <option disabled selected value="none">Choose Vehicle</option>
+                <option id='midSelect' value="midsize">Midsize</option>
+                <option id='ecoSelect' value="economy">Economy</option>
+                <option id='luxSelect' value="luxury">Luxury</option>
+            </select>
+            
+            <input class="btn btn-sm btn-success" type="submit" value="Make A Reservation"/>
+        </form>
+        <div id="details">
+            <h3></h3>
+            <p id="price"></p>
+            
+            <h3></h3>
+            <p id="avail"></p>
+        </div>
+    </div>
+    <!--<button class="btn btn-primary" onclick="carData()">Update</button>-->
+    <!--<button class="btn btn-success" onclick="rentEcon()">Rent an economy car</button>-->
+    <!--<button class="btn btn-success" onclick="rentMidsize()">Rent a midsize car</button>-->
     
 </body>
 </html>
