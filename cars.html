@@ -48,17 +48,17 @@
             <input type="text" name="Renter name" placeholder="Your Name" required><br>
             
             <label>Car Type</label>
-            <select id="selection" onchange="display(this.value)" name="cars" required>
-                <option disabled selected value="none">Choose Vehicle</option>
-                <option id='midSelect' value="midsize">Midsize</option>
-                <option id='ecoSelect' value="economy">Economy</option>
-                <option id='luxSelect' value="luxury">Luxury</option>
+            <select id="selection" name="cars" required>
+                <option disabled selected value="">Choose Vehicle</option>
+                <option onselect="eco()" id='ecoSelect' value="economy">Economy</option>
+                <option onselect="mid()" id='midSelect' value="midsize">Midsize</option>
+                <option onselect="lux()" id='luxSelect' value="luxury">Luxury</option>
             </select>
             
             <input class="btn btn-sm btn-success" type="submit" value="Make A Reservation"/>
         </form>
-        <div id="details">
-            <h3></h3>
+        <div>
+            <h3 id="details"></h3>
             <p id="price"></p>
             
             <h3></h3>

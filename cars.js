@@ -19,11 +19,14 @@ var carRental = {
     ],
 };
 
+
 document.ready(function() {
+    //To show price and amount data
     function display() {
-        var selection = carRental.carType[val];
-        document.getElementById('details').innerHTML = selection
+        document.getElementById('details').innerHTML = '<p>"Price: " + carRental.carType[0].price + <br> + "Available: " + carRental.carType[0].amount</p>';
     }
+    
+    //To show decrease in amount
     function rentEconomy() {
         carRental.carType[0].amount--;
         console.log(carRental.carType[0].amount);
