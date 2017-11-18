@@ -48,21 +48,21 @@
             <input type="text" name="Renter name" placeholder="Your Name" required><br>
             
             <label>Car Type</label>
-            <select id="selection" name="cars" required>
+            <select id="selection" name="cars" onchange="details()" required>
                 <option disabled selected value="">Choose Vehicle</option>
-                <option onselect="eco()" id='ecoSelect' value="economy">Economy</option>
-                <option onselect="mid()" id='midSelect' value="midsize">Midsize</option>
-                <option onselect="lux()" id='luxSelect' value="luxury">Luxury</option>
+                <option  id='ecoSelect' value="economy">Economy</option>
+                <option  id='midSelect' value="midsize">Midsize</option>
+                <option  id='luxSelect' value="luxury">Luxury</option>
             </select>
             
-            <input class="btn btn-sm btn-success" type="submit" value="Make A Reservation"/>
+            <input onclick="rentCar()" class="btn btn-sm btn-success" type="submit" value="Make A Reservation"/>
         </form>
-        <div>
-            <h3 id="details"></h3>
-            <p id="price"></p>
+        <div id="details">
+            <h3 id="price"></h3>
+            <p></p>
             
-            <h3></h3>
-            <p id="avail"></p>
+            <h3 id="avail"></h3>
+            <p></p>
         </div>
     </div>
     <!--<button class="btn btn-primary" onclick="carData()">Update</button>-->
