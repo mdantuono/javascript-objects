@@ -41,21 +41,31 @@ function details() {
     // //To show decrease in amount
 function rentCar() {
     var elem = document.getElementById('selection').value;
-    if (elem == "economy") {
+    var numAvail = carRental.carType[0, 1, 2].amount;
+    
+    if (numAvail == 0) {
+        alert("No cars available!");
+        return false;
+    }
+    else if (elem == "economy") {
         carRental.carType[0].amount--;
         console.log(carRental.carType[0].amount);
+        return details();
     }
     else if (elem == "midsize") {
         carRental.carType[1].amount--;
         console.log(carRental.carType[1].amount);
+        return details();
     }
     else if (elem == "luxury") {
         carRental.carType[2].amount--;
         console.log(carRental.carType[2].amount);
+        return details();
     }
 }
 
 //Reserved message
-    function reserved() {
-        document.getElementById('pagecontent').innerHTML = "<h2>Reservation booked! Enjoy your ride.</h2>";
-    }
+function reserved() {
+    document.getElementById('end').innerHTML = "Reservation booked! Enjoy your ride.";
+    event.preventDefault();
+}
