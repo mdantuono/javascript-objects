@@ -41,9 +41,19 @@ function details() {
     // //To show decrease in amount
 function rentCar() {
     var elem = document.getElementById('selection').value;
-    var numAvail = carRental.carType[0, 1, 2].amount;
+    var ecoAvail = carRental.carType[0].amount;
+    var midAvail = carRental.carType[1].amount;
+    var luxAvail = carRental.carType[2].amount;
     
-    if (numAvail == 0) {
+    if (ecoAvail == 0) {
+        alert("No cars available!");
+        return false;
+    }
+    if (midAvail == 0) {
+        alert("No cars available!");
+        return false;
+    }
+    if (luxAvail == 0) {
         alert("No cars available!");
         return false;
     }
