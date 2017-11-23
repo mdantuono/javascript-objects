@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Car Rentals</title>
     
-    <script src="cars.js"></script>
+    
     
     <style>
         h1 {
@@ -48,11 +48,8 @@
             <input type="text" name="Renter name" placeholder="Your Name" required><br>
             
             <label>Car Type</label>
-            <select id="selection" name="cars" onchange="details()" required>
+            <select id="selection" name="cars" required>
                 <option disabled selected value="">Choose Vehicle</option>
-                <option  id='ecoSelect' value="economy">Economy</option>
-                <option  id='midSelect' value="midsize">Midsize</option>
-                <option  id='luxSelect' value="luxury">Luxury</option>
             </select>
             
             <input onclick="rentCar()" class="btn btn-sm btn-success" type="submit" value="Make A Reservation"/>
@@ -62,6 +59,6 @@
             <h4 id="avail"></h4>
             <p id="end"></p>
         </div>
-    </div>
+        <script src="cars.js"></script>
 </body>
 </html>

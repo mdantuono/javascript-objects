@@ -1,5 +1,5 @@
 var carRental = {
-    name: 'Rent-A-Car',
+    name: 'Catch-A-Ride',
     carType: [
         {
             name: "Economy",
@@ -20,62 +20,44 @@ var carRental = {
 };
 
 
-    //To show price and amount data
-
-function details() {
-    var elem = document.getElementById('selection').value;
-    if(elem == "economy") {
-        document.getElementById('price').innerHTML = "Price: $" + carRental.carType[0].price;
-        document.getElementById('avail').innerHTML = "Available: " + carRental.carType[0].amount;
-    }
-    else if (elem == "midsize") {
-        document.getElementById('price').innerHTML = "Price: $" + carRental.carType[1].price;
-        document.getElementById('avail').innerHTML = "Available: " + carRental.carType[1].amount;
-    }
-    else if (elem == "luxury") {
-        document.getElementById('price').innerHTML = "Price: $" + carRental.carType[2].price;
-        document.getElementById('avail').innerHTML = "Available: " + carRental.carType[2].amount;
-    }
+///Loop creating options and html 
+for (var i = 0; i < carRental.carType.length; i++) {
+    console.log(i);
+    var options = document.createElement("OPTION");
+    var select = document.getElementById('selection');
+    options.setAttribute("value", i);
+    options.setAttribute("id", "car" + i);
+    options.text = carRental.carType[i].name;
+    
+    select.appendChild(options);
 }
 
-    // //To show decrease in amount
+///To show price and amount data
+document.getElementById('selection').onchange = function() {
+    var select = document.getElementById('selection');
+    console.log(select.value);
+    document.getElementById('price').innerHTML = "Price: $" + carRental.carType[select.value].price;
+    document.getElementById('avail').innerHTML = "Available: " + carRental.carType[select.value].amount;
+}
+
+////To show decrease in amount
 function rentCar() {
     var elem = document.getElementById('selection').value;
-    var ecoAvail = carRental.carType[0].amount;
-    var midAvail = carRental.carType[1].amount;
-    var luxAvail = carRental.carType[2].amount;
+    var carAvail = carRental.carType[elem].amount;
     
-    if (ecoAvail == 0) {
+    if (carAvail == 0) {
         alert("No cars available!");
         return false;
     }
-    if (midAvail == 0) {
-        alert("No cars available!");
-        return false;
-    }
-    if (luxAvail == 0) {
-        alert("No cars available!");
-        return false;
-    }
-    else if (elem == "economy") {
-        carRental.carType[0].amount--;
+    else for (var i = 0; i < carRental.carType.length; i++) {
+        carRental.carType[i].amount--;
         console.log(carRental.carType[0].amount);
-        return details();
-    }
-    else if (elem == "midsize") {
-        carRental.carType[1].amount--;
-        console.log(carRental.carType[1].amount);
-        return details();
-    }
-    else if (elem == "luxury") {
-        carRental.carType[2].amount--;
-        console.log(carRental.carType[2].amount);
-        return details();
+        return display();
     }
 }
 
 //Reserved message
 function reserved() {
-    document.getElementById('end').innerHTML = "Reservation booked! Enjoy your ride.";
     event.preventDefault();
+    alert("Reservation booked! Enjoy your ride.");
 }
