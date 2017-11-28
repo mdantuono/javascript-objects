@@ -38,7 +38,7 @@ document.getElementById('selection').onchange = function() {
     console.log(select.value);
     document.getElementById('price').innerHTML = "Price: $" + carRental.carType[select.value].price;
     document.getElementById('avail').innerHTML = "Available: " + carRental.carType[select.value].amount;
-}
+};
 
 ////To show decrease in amount
 function rentCar() {
@@ -49,10 +49,9 @@ function rentCar() {
         alert("No cars available!");
         return false;
     }
-    else for (var i = 0; i < carRental.carType.length; i++) {
-        carRental.carType[i].amount--;
-        console.log(carRental.carType[0].amount);
-        return display();
+    else {
+        carAvail--;
+        console.log(carAvail);
     }
 }
 
