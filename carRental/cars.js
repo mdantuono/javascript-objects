@@ -40,7 +40,7 @@ document.getElementById('selection').onchange = function() {
     document.getElementById('avail').innerHTML = "Available: " + carRental.carType[select.value].amount;
 };
 
-////To show decrease in amount
+////To show decrease in amount and store renter name
 function rentCar() {
     var elem = document.getElementById('selection').value;
     var carAvail = carRental.carType[elem].amount;
@@ -50,9 +50,15 @@ function rentCar() {
         return false;
     }
     else {
-        carAvail--;
+        carAvail --;
         console.log(carAvail);
         document.getElementById('avail').innerHTML = "Available: " + carAvail;
+        var name = [];
+        var car = [];
+        name.push(document.getElementById('renterName').value);
+        car.push(carRental.carType[document.getElementById('selection').value].name);
+        console.log(name);
+        console.log(car);
         event.preventDefault();
     }
 }
