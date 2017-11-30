@@ -43,27 +43,28 @@ document.getElementById('selection').onchange = function() {
 ////To show decrease in amount and store renter name
 function rentCar() {
     var elem = document.getElementById('selection').value;
-    var carAvail = carRental.carType[elem].amount;
     
-    if (carAvail == 0) {
+    if (carRental.carType[elem].amount == 0) {
         alert("No cars available!");
+        event.preventDefault();
         return false;
     }
     else {
-        carAvail --;
-        console.log(carAvail);
-        document.getElementById('avail').innerHTML = "Available: " + carAvail;
+        //Decrement car selected
+        carRental.carType[elem].amount--;
+        console.log(carRental.carType[elem].amount);
+        //Re-display cars available
+        document.getElementById('avail').innerHTML = "Available: " + carRental.carType[elem].amount;
+        //Create arrays and store the name of renter and car type in an array
         var name = [];
         var car = [];
         name.push(document.getElementById('renterName').value);
-        car.push(carRental.carType[document.getElementById('selection').value].name);
+        car.push(carRental.carType[elem].name);
+        //Console log my arrays
         console.log(name);
         console.log(car);
+        //Reserved message
+        alert("Reservation booked! Enjoy your ride.");
         event.preventDefault();
     }
-}
-
-//Reserved message
-function reserved() {
-    alert("Reservation booked! Enjoy your ride.");
 }
