@@ -52,11 +52,12 @@ function rentCar() {
     else {
         carAvail--;
         console.log(carAvail);
+        document.getElementById('avail').innerHTML = "Available: " + carAvail;
+        event.preventDefault();
     }
 }
 
 //Reserved message
 function reserved() {
-    event.preventDefault();
     alert("Reservation booked! Enjoy your ride.");
 }
