@@ -1,3 +1,6 @@
+/*global $*/
+var theQuote;
+var theAuthor;
 //Random number generator to choose a quote in the array.
 var quote = [
     '"Fake quote :P" -Mike',
@@ -9,29 +12,27 @@ var quote = [
     '“So many books, so little time.” -Frank Zappa',
 ];
 
-// function getQuote() {
-//     var randomNum = Math.floor(Math.random()*7);
-//     document.getElementById('random_quote').innerHTML = quote[randomNum];
-// }
+function getQuote() {
+    var randomNum = Math.floor(Math.random()*7);
+    document.getElementById('quote').innerHTML = quote[randomNum];
+}
 
 //Using an API to obtain quotes.
-// function getQuote() {
-//     var quote = new XMLHttpRequest();
-//         quote.open("GET", "https://talaikis.com/api/quotes/random/", false);
-//         quote.send();
-        
-//         document.getElementById('random_quote').innerHTML = quote.responseText;
-// }
-$(function() {
+function showMe() {
     $.ajax ({
-        type: 'GET',
+        method: 'GET',
         url: "https://talaikis.com/api/quotes/random/",
         success: function(data) {
             console.log('success', data);
+            document.getElementById('quote').innerHTML = data.quote;
+            document.getElementById('author').innerHTML = data.author;
+            theQuote = data.quote;
+            theAuthor = data.author;
         }
     });
+}
+//Tweet the quote and author name
+$("#share-quote").on("click", function(event) {
+    event.preventDefault();
+    window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(theQuote + " -" + theAuthor));
 });
-// function tweetIt() {
-//     document.getElementById('tweet')
-// }
-
